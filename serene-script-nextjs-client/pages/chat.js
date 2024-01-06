@@ -1,6 +1,6 @@
 import NavBar from "@/components/NavBar";
 import { getCompletion } from "@/utils/api/gpt4";
-import { Box, TextField, Button, Typography } from "@mui/material";
+import { Box, TextField, Button, Typography, useTheme } from "@mui/material";
 import Head from "next/head";
 import { useState } from "react";
 
@@ -8,6 +8,8 @@ export default function Chat() {
     const [sessionId, setSessionId] = useState(-1);
     const [sessionMessages, setSessionMessages] = useState([]);
     const [userInput, setUserInput] = useState("");
+
+    const theme = useTheme();
 
     const handleSendChat = async () => {
         let userMessage = userInput;
@@ -36,7 +38,7 @@ export default function Chat() {
             </Head>
             <NavBar />
             <Box height={100}>
-                <h1 style={{ textAlign: "center", marginTop: "5rem" }}>Test</h1>
+                <h1 style={{ textAlign: "center", marginTop: "5rem" }}>Therapy Chat</h1>
 
                 {sessionMessages && sessionMessages.length > 0 && (
                     <Box
@@ -44,8 +46,8 @@ export default function Chat() {
                             width: "70%",
                             marginX: "auto",
                             padding: "1rem",
-                            border: "1px solid",
                             borderRadius: "0.25rem",
+                            border: `1px solid ${theme.palette.grey[400]}`
                         }}
                     >
                         {sessionMessages.map((sessionMessage) => {
@@ -60,12 +62,13 @@ export default function Chat() {
                     </Box>
                 )}
 
-                <div style={{ display: "flex", justifyContent: "center" }}>
+                <div style={{ display: "flex", justifyContent: "center", marginTop: "1rem" }}>
                     <TextField
                         value={userInput}
                         onChange={(event) => setUserInput(event.target.value)}
                         multiline
                         sx={{ width: "70%" }}
+                        placeholder="Message"
                     />
                 </div>
                 <div style={{ display: "flex", justifyContent: "center" }}>
