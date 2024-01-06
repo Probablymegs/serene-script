@@ -1,0 +1,33 @@
+# Dependency directories
+node_modules/
+
+# Environment variables
+.env
+
+# Log files
+npm-debug.log
+yarn-error.log
+
+# Optional npm cache & logs
+.npm
+.npmrc
+.yarn
+.yarnrc
+.yarn-integrity
+.yarn-lock
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+
+# IDE/Editor directories
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+
+# Build output
+dist/
+build/

@@ -1,9 +1,12 @@
 import express from "express";
 import OpenAI from "openai";
+import { config } from 'dotenv';
+
+config();
 
 let router = express.Router();
 const openai = new OpenAI({
-    apiKey: "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",
+    apiKey: process.env.HACKED_API_KEY,
 });
 
 router.get("/getCompletion", async (req, res) => {
