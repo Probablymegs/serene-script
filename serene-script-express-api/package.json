@@ -1,0 +1,16 @@
+{
+  "name": "serene-script-express-api",
+  "version": "1.0.0",
+  "description": "api for the serene script web app",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "serene-script",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "openai": "^4.24.1"
+  }
+}
