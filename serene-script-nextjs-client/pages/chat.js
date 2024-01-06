@@ -1,6 +1,6 @@
 import NavBar from "@/components/NavBar";
 import { Button, useInput } from "@mui/base";
-import { TextField } from "@mui/material";
+import { Box, TextField } from "@mui/material";
 import Head from "next/head";
 import { useState } from "react";
 
@@ -14,8 +14,8 @@ export default function Chat() {
         if (sessionId == -1) {
             setSessionId(response.sessionId);
         }
-        console.log(response.response)
-    }
+        console.log(response.response);
+    };
 
     return (
         <>
@@ -26,12 +26,11 @@ export default function Chat() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <NavBar />
-            <main>
-                <div>
-                    <TextField value={userInput} onChange={(event) => setUserInput(event.target.value)} />
-                    <Button onClick={handleSendChat}>Send</Button>
-                </div>
-            </main>
+            <Box height={100}>
+                <h1>Test</h1>
+                <TextField value={userInput} onChange={(event) => setUserInput(event.target.value)} />
+                <Button onClick={handleSendChat}>Send</Button>
+            </Box>
         </>
     );
 }
