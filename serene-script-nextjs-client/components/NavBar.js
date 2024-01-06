@@ -20,17 +20,17 @@ export default function NavBar(props) {
                         </Typography>
                     </Link>
                     <Link href="/chat">
-                        <Typography variant="h6" component="div" sx={{ flexGrow: 1, marginLeft: "1rem" }}>
+                        <Typography variant="h6" component="div" sx={{ flexGrow: 1, marginLeft: "1rem", color: "black" }}>
                             Chat
                         </Typography>
                     </Link>
                     <Link href="/toDo">
-                        <Typography variant="h6" component="div" sx={{ flexGrow: 1, marginLeft: "1rem" }}>
+                        <Typography variant="h6" component="div" sx={{ flexGrow: 1, marginLeft: "1rem", color: "black" }}>
                             To do
                         </Typography>
                     </Link>
                     <Link href="/links">
-                        <Typography variant="h6" component="div" sx={{ flexGrow: 1, marginLeft: "1rem" }}>
+                        <Typography variant="h6" component="div" sx={{ flexGrow: 1, marginLeft: "1rem", color: "black" }}>
                             Get Help
                         </Typography>
                     </Link>
