@@ -1,7 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
-import styles from "@/styles/Home.module.css";
 import { useEffect, useState } from "react";
 import { getCompletion } from "@/utils/api/gpt4";
 
@@ -21,7 +20,7 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <NavBar />
-                <main className={`${styles.main} ${inter.className}`}>
+                <main>
                     <div>
                         <h1>Serene Script</h1>
                     </div>

@@ -1,4 +1,5 @@
 import NavBar from "@/components/NavBar";
+import { getCompletion } from "@/utils/api/gpt4";
 import { Button, useInput } from "@mui/base";
 import { Box, TextField } from "@mui/material";
 import Head from "next/head";
@@ -14,7 +15,7 @@ export default function Chat() {
         if (sessionId == -1) {
             setSessionId(response.sessionId);
         }
-        console.log(response.response);
+        console.log(response);
     };
 
     return (
@@ -29,7 +30,7 @@ export default function Chat() {
             <Box height={100}>
                 <h1>Test</h1>
                 <TextField value={userInput} onChange={(event) => setUserInput(event.target.value)} />
-                <Button onClick={handleSendChat}>Send</Button>
+                <Button onClick={async () => await handleSendChat()}>Send</Button>
             </Box>
         </>
     );
