@@ -12,14 +12,6 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
     const [sessionId, setSessionId] = useState(-1);
 
-    useEffect(() => {
-        (async () => {
-            let response = await getCompletion("Tell me something cool", sessionId);
-            console.log(response);
-            setSessionId(response.sessionId);
-        })();
-    }, []);
-
     return (
         <>
             <Head>

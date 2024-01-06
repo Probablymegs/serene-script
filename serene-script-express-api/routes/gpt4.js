@@ -12,22 +12,12 @@ const openai = new OpenAI({
 });
 
 router.post("/getCompletion", async (req, res) => {
-    console.log(req.body)
-
     let prompt = req.body.prompt;
     let sessionId = req.body.sessionId;
 
-    console.log(sessionId);
-    console.log(sessionId == -1);
-    console.log(typeof sessionId)
-
     if (sessionId == -1) {
-        console.log("!!!!!")
-        console.log(sessions.length)
         sessionId = sessions.length + 1;
     }
-
-    console.log(sessionId);
 
     let currentMessages;
     let userMessage = { role: "user", content: `${prompt}` };
