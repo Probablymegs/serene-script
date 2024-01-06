@@ -18,10 +18,10 @@ router.post("/getCompletion", async (req, res) => {
     let sessionId = req.body.sessionId;
 
     console.log(sessionId);
-    console.log(sessionId == "-1");
+    console.log(sessionId == -1);
     console.log(typeof sessionId)
 
-    if (sessionId == "null") {
+    if (sessionId == -1) {
         console.log("!!!!!")
         console.log(sessions.length)
         sessionId = sessions.length + 1;
