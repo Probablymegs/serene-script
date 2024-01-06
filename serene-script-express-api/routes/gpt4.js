@@ -18,7 +18,7 @@ router.post("/getCompletion", async (req, res) => {
     let sessionId = req.body.sessionId;
 
     console.log(sessionId);
-    console.log(sessionId == -1);
+    console.log(sessionId == "-1");
     console.log(typeof sessionId)
 
     if (sessionId == "null") {
