@@ -21,6 +21,16 @@ export default function NavBar(props) {
                             Chat
                         </Typography>
                     </Link>
+                    <Link href="/toDo">
+                        <Typography variant="h6" component="div" sx={{ flexGrow: 1, marginLeft: "1rem" }}>
+                            To do
+                        </Typography>
+                    </Link>
+                    <Link href="/links">
+                        <Typography variant="h6" component="div" sx={{ flexGrow: 1, marginLeft: "1rem" }}>
+                            Get Help
+                        </Typography>
+                    </Link>
                     <Menu></Menu>
                 </Toolbar>
             </AppBar>
