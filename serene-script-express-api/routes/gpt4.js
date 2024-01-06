@@ -1,6 +1,6 @@
 import express from "express";
 import OpenAI from "openai";
-import { config } from 'dotenv';
+import { config } from "dotenv";
 
 config();
 
@@ -15,7 +15,7 @@ router.get("/getCompletion", async (req, res) => {
         model: "gpt-4",
     });
 
-    res.send(completion.choices[0].message.content);
+    res.json({ response: completion.choices[0].message.content });
     console.log("completed");
 });
 
