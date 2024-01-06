@@ -2,16 +2,19 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getCompletion } from "@/utils/api/gpt4";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+    const [sessionId, setSessionId] = useState(-1);
+
     useEffect(() => {
         (async () => {
-            let response = await getCompletion("Tell me something cool");
-            console.log(response.response);
+            let response = await getCompletion("Tell me something cool", sessionId);
+            console.log(response);
+            setSessionId(response.sessionId);
         })();
     }, []);
 
