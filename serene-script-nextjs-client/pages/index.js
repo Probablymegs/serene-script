@@ -5,6 +5,8 @@ import styles from "@/styles/Home.module.css";
 import { useEffect, useState } from "react";
 import { getCompletion } from "@/utils/api/gpt4";
 
+import NavBar from "@/components/NavBar";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
@@ -26,6 +28,7 @@ export default function Home() {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
+            <NavBar />
                 <main className={`${styles.main} ${inter.className}`}>
                     <div>
                         <h1>Serene Script</h1>
