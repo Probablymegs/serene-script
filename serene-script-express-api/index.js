@@ -1,6 +1,6 @@
 import express from "express";
 const app = express();
-const port = 3000;
+const port = 9000;
 
 import { router as gpt4 } from "./routes/gpt4.js";
 app.use("/gpt4", gpt4);
