@@ -2,7 +2,7 @@ import NavBar from "@/components/NavBar";
 import { getCompletion } from "@/utils/api/gpt4";
 import { Box, TextField, Button, Typography, useTheme } from "@mui/material";
 import Head from "next/head";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Chat() {
     const [sessionId, setSessionId] = useState(-1);
@@ -11,13 +11,20 @@ export default function Chat() {
 
     const theme = useTheme();
 
+    const chatEndRef = useRef(null);
+
     const handleSendChat = async () => {
+        if (!validateMessage()) {
+            return;
+        }
+
         let userMessage = userInput;
         let response = await getCompletion(userMessage, sessionId);
+
         if (sessionId == -1) {
             setSessionId(response.sessionId);
         }
-        console.log(response);
+
         setSessionMessages((sessionMessages) => {
             return [
                 ...sessionMessages,
@@ -25,8 +32,23 @@ export default function Chat() {
                 { role: "assistant", message: response.response },
             ];
         });
+
         setUserInput("");
     };
+
+    const validateMessage = () => {
+        let valid = true;
+
+        if (userInput.trim() == "") {
+            valid = false;
+        }
+
+        return valid;
+    }
+
+    useEffect(() => {
+        chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, [sessionMessages]);
 
     return (
         <>
@@ -41,25 +63,79 @@ export default function Chat() {
                 <h1 style={{ textAlign: "center", marginTop: "5rem" }}>Therapy Chat</h1>
 
                 {sessionMessages && sessionMessages.length > 0 && (
-                    <Box
-                        sx={{
-                            width: "70%",
-                            marginX: "auto",
-                            padding: "1rem",
-                            borderRadius: "0.25rem",
-                            border: `1px solid ${theme.palette.grey[400]}`
-                        }}
-                    >
-                        {sessionMessages.map((sessionMessage) => {
-                            return (
-                                <div style={{marginTop: "0.5rem"}}>
-                                    <Typography>
-                                        {sessionMessage.role}: {sessionMessage.message}
-                                    </Typography>
-                                </div>
-                            );
-                        })}
-                    </Box>
+                    <>
+                        <Box
+                            sx={{
+                                width: "70%",
+                                marginX: "auto",
+                                padding: "1rem",
+                                borderRadius: "0.25rem",
+                                border: `1px solid ${theme.palette.grey[400]}`,
+                                maxHeight: "60vh",
+                                overflowY: "scroll",
+                            }}
+                        >
+                            {sessionMessages.map((sessionMessage) => {
+                                if (sessionMessage.role == "assistant") {
+                                    return (
+                                        <>
+                                            <div
+                                                style={{
+                                                    marginTop: "0.5rem",
+                                                    backgroundColor: theme.palette.primary.main,
+                                                    padding: "0.5rem",
+                                                    borderRadius: "0.5rem",
+                                                    maxWidth: "70%",
+                                                    minWidth: "0rem",
+                                                    display: "inline-block",
+                                                }}
+                                            >
+                                                <Typography
+                                                    sx={{
+                                                        width: "unset",
+                                                    }}
+                                                >
+                                                    {sessionMessage.message}
+                                                </Typography>
+                                            </div>
+                                            <div style={{ width: "100%", display: "block" }}></div>
+                                        </>
+                                    );
+                                }
+                                return (
+                                    <div
+                                        style={{
+                                            minWidth: "100%",
+                                            width: "100%",
+                                            display: "flex",
+                                            justifyContent: "flex-end",
+                                        }}
+                                    >
+                                        <div
+                                            style={{
+                                                marginTop: "0.5rem",
+                                                backgroundColor: theme.palette.grey[300],
+                                                padding: "0.5rem",
+                                                borderRadius: "0.5rem",
+                                                maxWidth: "70%",
+                                                minWidth: "0rem",
+                                                display: "inline-block",
+                                            }}
+                                        >
+                                            <Typography
+                                                sx={{
+                                                    width: "unset",
+                                                }}
+                                            >
+                                                {sessionMessage.message}
+                                            </Typography>
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                            <div ref={chatEndRef}></div>
+                        </Box>
+                    </>
                 )}
 
                 <div style={{ display: "flex", justifyContent: "center", marginTop: "1rem" }}>

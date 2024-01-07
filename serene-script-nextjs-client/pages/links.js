@@ -133,7 +133,7 @@ export default function Links()
                                                 </CardContent>
                                                 {
                                                     resource.url &&
-                                                    <Button sx={{ marginBottom: "4px" }} color="secondary" href={resource.url}>Link</Button>
+                                                    <Button color="secondary" href={resource.url} sx={{marginTop: "auto", marginBottom: "0rem"}}>Link</Button>
                                                 }
                                            </Card>
                                 })
