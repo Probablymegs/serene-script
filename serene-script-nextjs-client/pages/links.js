@@ -75,7 +75,7 @@ export default function Links()
             ]
         },
         {
-            section: "Emergencies",
+            section: "Emergencies/Hotlines",
             resources: [
                 {
                     name: "911",
@@ -124,7 +124,7 @@ export default function Links()
                             <Box sx={{ display: "inline-flex", justifyContent: "space-around", height: "25%", width: "100%" }}>
                             {
                                 section.resources.map((resource) => {
-                                    return <Card sx={{ width: "18%", textAlign: "center" }}>
+                                    return <Card raised="true" sx={{ width: "18%", textAlign: "center" }}>
                                                 <CardHeader title={resource.name}/>
                                                 <CardContent>
                                                     <Typography variant="body2" color="contrastText">
@@ -133,7 +133,7 @@ export default function Links()
                                                 </CardContent>
                                                 {
                                                     resource.url &&
-                                                    <Button color="secondary" href={resource.url}>Link</Button>
+                                                    <Button sx={{ marginBottom: "4px" }} color="secondary" href={resource.url}>Link</Button>
                                                 }
                                            </Card>
                                 })
