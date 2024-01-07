@@ -183,6 +183,7 @@ export default function Chat() {
                                 backgroundColor: theme.palette.primary.dark,
                                 marginTop: "1rem",
                                 border: "none",
+                                marginBottom: "0.5rem",
                             }}
                             disabled={working == true}
                             variant="outlined"
