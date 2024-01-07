@@ -1,3 +1,5 @@
+//component that returns a wrapper div with a background image and allows for children elements to be passed in
+
 export default function Background(props) {
     return (
         <div

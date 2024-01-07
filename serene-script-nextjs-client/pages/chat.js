@@ -15,11 +15,11 @@ export default function Chat() {
                 "Hello! My name is Serenity. I am here to answer any questions you might have about mental health. How can I help you today?",
         },
     ]);
+
     const [userInput, setUserInput] = useState("");
     const [working, setWorking] = useState(false);
 
     const theme = useTheme();
-
     const chatEndRef = useRef(null);
 
     const handleSendChat = async () => {
@@ -41,7 +41,7 @@ export default function Chat() {
             return [
                 ...sessionMessages,
                 { role: "user", message: userMessage },
-                { role: "assistant", message: response.response }
+                { role: "assistant", message: response.response },
             ];
         });
 

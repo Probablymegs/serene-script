@@ -1,18 +1,11 @@
 import Head from "next/head";
-import Image from "next/image";
-import { Inter } from "next/font/google";
-import { useEffect, useState } from "react";
-import { getCompletion } from "@/utils/api/gpt4";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useTheme } from "@mui/material";
 
 import NavBar from "@/components/NavBar";
 import Background from "@/components/Background";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export default function Home() {
-    const [sessionId, setSessionId] = useState(-1);
     const theme = useTheme();
 
     return (

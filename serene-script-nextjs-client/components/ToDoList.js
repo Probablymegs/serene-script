@@ -1,5 +1,6 @@
-import { useState } from "react";
+//component that returns the to do list
 
+import { useState } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
@@ -8,7 +9,6 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
 import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
 import { getTaskValue } from "@/utils/api/gpt4";
 import { useTheme } from "@mui/material";
@@ -24,10 +24,13 @@ export default function ToDoList() {
     };
 
     const addToList = async () => {
-        var taskVal = await getTaskValue(toDoItem)
-        taskVal = Number.parseInt(taskVal.response)
+        //awaits a point value for the task from the api
+        var taskVal = await getTaskValue(toDoItem);
+
+        //converts the point value from a string to an integer and adds the task to the list along with the value
+        taskVal = Number.parseInt(taskVal.response);
         setTodoValue(taskVal.response);
-        let newToDos = [{task: toDoItem, value: todoValue}, ...allToDos];
+        let newToDos = [{ task: toDoItem, value: todoValue }, ...allToDos];
         setAllToDos(newToDos);
         setToDoItem("");
     };

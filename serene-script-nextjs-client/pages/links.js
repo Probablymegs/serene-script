@@ -122,7 +122,7 @@ export default function Links() {
                     marginTop: "5rem",
                     color: theme.palette.primary.dark,
                     marginBottom: "2rem",
-                    width: "100%"
+                    width: "100%",
                 }}
             >
                 Mental Health Links
@@ -131,7 +131,15 @@ export default function Links() {
                 {content.map((section) => {
                     return (
                         <Box sx={{ textAlign: "center" }}>
-                            <Typography variant="h4" sx={{ marginTop: "5px", marginBottom: "5px", fontSize: "1.5rem", color: theme.palette.primary.dark, }}>
+                            <Typography
+                                variant="h4"
+                                sx={{
+                                    marginTop: "5px",
+                                    marginBottom: "5px",
+                                    fontSize: "1.5rem",
+                                    color: theme.palette.primary.dark,
+                                }}
+                            >
                                 {section.section}
                             </Typography>
                             <Box
