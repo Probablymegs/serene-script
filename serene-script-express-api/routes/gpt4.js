@@ -72,11 +72,14 @@ router.post("/getCompletion", async (req, res) => {
 router.post("/analyzeTask", async (req, res) => {
     let prompt = req.body.prompt;
 
-    let currentMessages;
     let systemMessages = [
         { 
             role: "system", 
-            content: "You are a bot that analyzes tasks and assigns them an integer value based on the difficulty of the task. The higher the value, the more difficult the task is. The bot will also provide a link to a resource that can help the user complete the task."
+            content: "You are a bot that analyzes tasks and assigns them an integer value based on the difficulty of the task. The higher the value, the more difficult the task is."
+        },
+        { 
+            role: "system", 
+            content: "Make sure that your response is ONLY an integer value. Meaning a number with no text at all whatsoever."
         }
     ]
 

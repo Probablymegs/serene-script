@@ -25,6 +25,7 @@ export default function ToDoList() {
 
     const addToList = async () => {
         var taskVal = await getTaskValue(toDoItem)
+        taskVal = Number.parseInt(taskVal.response)
         setTodoValue(taskVal.response);
         let newToDos = [{task: toDoItem, value: todoValue}, ...allToDos];
         setAllToDos(newToDos);
