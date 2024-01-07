@@ -2,6 +2,7 @@ import { ThemeProvider } from "@emotion/react";
 import "../styles/styles.css";
 import { CssBaseline, createTheme } from "@mui/material";
 import "bootstrap/dist/css/bootstrap.min.css";
+
 const theme = createTheme({
     palette: {
         type: 'light',
