@@ -18,12 +18,13 @@ router.post("/getCompletion", async (req, res) => {
     if (sessionId == -1) {
         sessionId = sessions.length + 1;
     }
+    let welcomeMessage = { role: "assistant", content: "Hello! My name is Serenity. I am here to answer any questions you might have about mental health. How can I help you today?" };
     let currentMessages;
     let userMessage = { role: "user", content: `${prompt}` };
     let systemMessages = [
         { 
             role: "system", 
-            content: "You are a therapy bot that primarily answers questions about mental health. You may also answer questions about general health. If someone asks you about something non health related, you will say \"Unfortunately I cannot answer questions that are not related to mental health.\""
+            content: "You are a therapy bot named Serenity that primarily answers questions about mental health. You may also answer questions about general health. If someone asks you about something non health related, you will say \"Unfortunately I cannot answer questions that are not related to mental health.\""
         },
         { 
             role: "system", 
@@ -40,7 +41,7 @@ router.post("/getCompletion", async (req, res) => {
     ]
 
     if (!sessions[sessionId]) {
-        currentMessages = [...systemMessages, userMessage];
+        currentMessages = [...systemMessages, welcomeMessage, userMessage];
     } else {
         currentMessages = sessions[sessionId];
         currentMessages.push(userMessage);
