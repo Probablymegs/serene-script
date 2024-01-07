@@ -15,7 +15,7 @@ export default function NavBar(props) {
     return (
         <Box>
             <AppBar position="static" sx={{backgroundColor: theme.palette.primary.main}}>
-                <Toolbar sx={{display: 'flex', justifyContent: 'space-around'}}>
+                <Toolbar sx={{display: 'flex'}} /* Stop changing this */>
                    
                     <Link href="/" /*insert reference page here*/>
                       <SpaIcon sx={{fontSize: 40, color: theme.palette.primary.dark}}/>
