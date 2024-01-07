@@ -1,21 +1,31 @@
 import NavBar from "@/components/NavBar";
 import { getCompletion } from "@/utils/api/gpt4";
-import { Button, useInput } from "@mui/base";
-import { Box, TextField } from "@mui/material";
+import { Box, TextField, Button, Typography, useTheme } from "@mui/material";
 import Head from "next/head";
 import { useState } from "react";
 
 export default function Chat() {
     const [sessionId, setSessionId] = useState(-1);
-
+    const [sessionMessages, setSessionMessages] = useState([]);
     const [userInput, setUserInput] = useState("");
 
+    const theme = useTheme();
+
     const handleSendChat = async () => {
-        let response = await getCompletion(userInput, sessionId);
+        let userMessage = userInput;
+        let response = await getCompletion(userMessage, sessionId);
         if (sessionId == -1) {
             setSessionId(response.sessionId);
         }
         console.log(response);
+        setSessionMessages((sessionMessages) => {
+            return [
+                ...sessionMessages,
+                { role: "user", message: userMessage },
+                { role: "assistant", message: response.response },
+            ];
+        });
+        setUserInput("");
     };
 
     return (
@@ -28,9 +38,44 @@ export default function Chat() {
             </Head>
             <NavBar />
             <Box height={100}>
-                <h1>Test</h1>
-                <TextField value={userInput} onChange={(event) => setUserInput(event.target.value)} />
-                <Button onClick={async () => await handleSendChat()}>Send</Button>
+                <h1 style={{ textAlign: "center", marginTop: "5rem" }}>Therapy Chat</h1>
+
+                {sessionMessages && sessionMessages.length > 0 && (
+                    <Box
+                        sx={{
+                            width: "70%",
+                            marginX: "auto",
+                            padding: "1rem",
+                            borderRadius: "0.25rem",
+                            border: `1px solid ${theme.palette.grey[400]}`
+                        }}
+                    >
+                        {sessionMessages.map((sessionMessage) => {
+                            return (
+                                <div style={{marginTop: "0.5rem"}}>
+                                    <Typography>
+                                        {sessionMessage.role}: {sessionMessage.message}
+                                    </Typography>
+                                </div>
+                            );
+                        })}
+                    </Box>
+                )}
+
+                <div style={{ display: "flex", justifyContent: "center", marginTop: "1rem" }}>
+                    <TextField
+                        value={userInput}
+                        onChange={(event) => setUserInput(event.target.value)}
+                        multiline
+                        sx={{ width: "70%" }}
+                        placeholder="Message"
+                    />
+                </div>
+                <div style={{ display: "flex", justifyContent: "center" }}>
+                    <Button onClick={async () => await handleSendChat()} sx={{ display: "block" }}>
+                        Send
+                    </Button>
+                </div>
             </Box>
         </>
     );
