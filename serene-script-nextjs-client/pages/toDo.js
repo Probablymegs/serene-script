@@ -7,7 +7,8 @@ export default function ToDo() {
     return <div style={{
         width: "100vw",
         height: "100vh",
-        backgroundImage: 'url("/landscape-background.webp")'
+        backgroundImage: 'url("/landscape-background.webp")',
+        backgroundSize: 'cover'
     }}>
             <Head>
                 <title>ToDo</title>

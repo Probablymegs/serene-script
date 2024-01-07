@@ -18,7 +18,8 @@ export default function Home() {
             position: "fixed",
             width: "100vw",
             height: "100vh",
-            backgroundImage: 'url("/landscape-background.webp")'
+            backgroundImage: 'url("/landscape-background.webp")',
+            backgroundSize: 'cover'
         }}>
 
         <Head>
@@ -30,14 +31,16 @@ export default function Home() {
     
             <NavBar />
                 <main>
-                    <div>
-                        <h1>Serene Script</h1>
-                    </div>
-                    <div>
-                        <h2>Mental Health Support</h2>
-                    </div>
-                    <div>
-                        <h3>Your journey to well-being starts here</h3>
+                    <div class="container d-flex flex-column text-muted">
+                        <div>
+                            <h1>Serene Script</h1>
+                        </div>
+                        <div>
+                            <h2>Mental Health Support</h2>
+                        </div>
+                        <div>
+                            <h3>Your journey to well-being starts here</h3>
+                        </div>
                     </div>
                 </main>
         </div>
