@@ -61,7 +61,8 @@ export default function Chat() {
         <div style={{
             width: "100vw",
             height: "100vh",
-            backgroundImage: 'url("/landscape-background.webp")'
+            backgroundImage: 'url("/landscape-background.webp")',
+            backgroundSize: 'cover'
         }}>
             <Head>
                 <title>Chat</title>
