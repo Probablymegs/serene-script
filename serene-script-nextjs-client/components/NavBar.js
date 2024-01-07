@@ -17,22 +17,20 @@ export default function NavBar(props) {
             <AppBar position="static" sx={{backgroundColor: theme.palette.primary.main, marginTop: '2rem'}}>
                 <Toolbar>
                     <Link href="/" /*insert reference page here*/>
-                        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                            <SpaIcon/>
-                        </Typography>
+                      <SpaIcon sx={{fontSize: 40, color: theme.palette.primary.dark}}/>
                     </Link>
                     <Link href="/chat">
-                        <Typography variant="h6" component="div" sx={{ flexGrow: 1, marginLeft: "1rem", color: "black" }}>
+                        <Typography variant="h6" component="div" sx={{ flexGrow: 1, marginLeft: "1rem", color: theme.palette.primary.dark, fontSize: 25 }}>
                             Chat
                         </Typography>
                     </Link>
                     <Link href="/toDo">
-                        <Typography variant="h6" component="div" sx={{ flexGrow: 1, marginLeft: "1rem", color: "black" }}>
+                        <Typography variant="h6" component="div" sx={{ flexGrow: 1, marginLeft: "1rem", color: theme.palette.primary.dark, fontSize: 25 }}>
                             To do
                         </Typography>
                     </Link>
                     <Link href="/links">
-                        <Typography variant="h6" component="div" sx={{ flexGrow: 1, marginLeft: "1rem", color: "black" }}>
+                        <Typography variant="h6" component="div" sx={{ flexGrow: 1, marginLeft: "1rem", color: theme.palette.primary.dark, fontSize: 25 }}>
                             Get Help
                         </Typography>
                     </Link>
