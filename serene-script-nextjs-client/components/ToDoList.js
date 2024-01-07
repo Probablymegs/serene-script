@@ -41,7 +41,16 @@ export default function ToDoList() {
         <Box sx={{ flexGrow: 1 }}>
             <Grid container sx={{ width: "70%", marginX: "auto" }}>
                 <Grid item xs={12}>
-                    <h1 style={{ textAlign: "center", marginTop: "5rem", color: theme.palette.primary.dark, marginBottom: "3rem" }}>Tasks</h1>
+                    <h1
+                        style={{
+                            textAlign: "center",
+                            marginTop: "5rem",
+                            color: theme.palette.primary.dark,
+                            marginBottom: "3rem",
+                        }}
+                    >
+                        To Do
+                    </h1>
                 </Grid>
                 <Grid item xs={10}>
                     <TextField
@@ -50,7 +59,7 @@ export default function ToDoList() {
                         onChange={onToDoChange}
                         value={toDoItem}
                         placeholder="Task Name"
-                        sx={{backgroundColor: "white", borderRadius: "0.25rem"}}
+                        sx={{ backgroundColor: "white", borderRadius: "0.25rem" }}
                     />
                 </Grid>
                 <Grid item xs={2}>
@@ -60,13 +69,18 @@ export default function ToDoList() {
                 </Grid>
             </Grid>
             <Grid container sx={{ width: "70%", marginX: "auto", marginTop: "2rem" }}>
-                <Grid sx={{width: "100%"}}>
-                    <List sx={{width: "100%"}}>
+                <Grid sx={{ width: "100%" }}>
+                    <List sx={{ width: "100%" }}>
                         {allToDos.map((toDoItem, index) => {
                             return (
                                 <ListItem
                                     key={index}
-                                    sx={{width: "91.25%", backgroundColor: "white", borderRadius: "0.25rem ", marginTop: "0.25rem"}}
+                                    sx={{
+                                        width: "91.25%",
+                                        backgroundColor: "white",
+                                        borderRadius: "0.25rem ",
+                                        marginTop: "0.25rem",
+                                    }}
                                     divider
                                     secondaryAction={
                                         <IconButton edge="end" onClick={() => onRemoveToDo(index)}>

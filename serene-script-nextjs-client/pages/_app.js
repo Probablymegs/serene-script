@@ -5,17 +5,17 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 const theme = createTheme({
     palette: {
-        type: 'light',
+        type: "light",
         primary: {
-          main: '#a8d8d4',
-          dark: '#336369',
-          light: '#badcdc',
-          contrastText: '#06413e',
+            main: "#a8d8d4",
+            dark: "#336369",
+            light: "#badcdc",
+            contrastText: "#06413e",
         },
         secondary: {
-          main: '#018574',
+            main: "#018574",
         },
-      },
+    },
 });
 
 export default function App({ Component, pageProps }) {
