@@ -19,6 +19,7 @@ export default function Chat() {
         setWorking(true);
 
         if (!validateMessage()) {
+            setWorking(false);
             return;
         }
 
