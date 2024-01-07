@@ -10,10 +10,12 @@ import ListItemText from "@mui/material/ListItemText";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
+import { useTheme } from "@mui/material";
 
 export default function ToDoList() {
     const [toDoItem, setToDoItem] = useState("");
     const [allToDos, setAllToDos] = useState([]);
+    const theme = useTheme();
 
     const onToDoChange = (event) => {
         setToDoItem(event.target.value);
@@ -35,7 +37,7 @@ export default function ToDoList() {
         <Box sx={{ flexGrow: 1 }}>
             <Grid container sx={{ width: "70%", marginX: "auto" }}>
                 <Grid item xs={12}>
-                    <h1 style={{ textAlign: "center", marginTop: "5rem" }}>To Do</h1>
+                    <h1 style={{ textAlign: "center", marginTop: "5rem", color: theme.palette.primary.dark, marginBottom: "3rem" }}>To Do</h1>
                 </Grid>
                 <Grid item xs={10}>
                     <TextField

@@ -79,7 +79,7 @@ export default function Chat() {
             </Head>
             <NavBar />
             <Box height={100}>
-                <h1 style={{ textAlign: "center", marginTop: "5rem" }}>Therapy Chat</h1>
+                <h1 style={{ textAlign: "center", marginTop: "5rem", color: theme.palette.primary.dark, marginBottom: "3rem" }}>Therapy Chat</h1>
 
                 {sessionMessages && sessionMessages.length > 0 && (
                     <>

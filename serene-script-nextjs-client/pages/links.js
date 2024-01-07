@@ -1,6 +1,6 @@
 import NavBar from "@/components/NavBar";
 import Head from "next/head";
-import { Box, Button, Card, CardContent, CardHeader, Typography } from "@mui/material";
+import { Box, Button, Card, CardContent, CardHeader, Typography, useTheme } from "@mui/material";
 
 export default function Links() {
     /*CANADA RESOURCES
@@ -40,6 +40,8 @@ export default function Links() {
     Calgary based:
     -	Distress Center
     o	403-266-4357*/
+
+    const theme = useTheme();
 
     const content = [
         {
@@ -120,14 +122,22 @@ export default function Links() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <NavBar />
-            <Box sx={{ textAlign: "center", marginTop: "5px", marginBottom: "5px" }}>
-                <Typography variant="h3">Mental Health Links </Typography>
-            </Box>
+            <h1
+                style={{
+                    textAlign: "center",
+                    marginTop: "5rem",
+                    color: theme.palette.primary.dark,
+                    marginBottom: "2rem",
+                    width: "100%"
+                }}
+            >
+                Mental Health Links
+            </h1>
             <Box>
                 {content.map((section) => {
                     return (
                         <Box sx={{ textAlign: "center" }}>
-                            <Typography variant="h4" sx={{ marginTop: "5px", marginBottom: "5px" }}>
+                            <Typography variant="h4" sx={{ marginTop: "5px", marginBottom: "5px", fontSize: "1.5rem", color: theme.palette.primary.dark, }}>
                                 {section.section}
                             </Typography>
                             <Box
