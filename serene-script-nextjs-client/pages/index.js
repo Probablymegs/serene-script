@@ -27,7 +27,10 @@ export default function Home() {
                         <h1>Serene Script</h1>
                     </div>
                     <div>
-                        <h2></h2>
+                        <h2>Mental Health Support</h2>
+                    </div>
+                    <div>
+                        <h3>Your journey to well-being starts here</h3>
                     </div>
                 </main>
         </div>
