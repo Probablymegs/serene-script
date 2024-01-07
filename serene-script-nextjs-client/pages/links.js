@@ -1,7 +1,6 @@
 import NavBar from "@/components/NavBar"
 import Head from "next/head";
-import { Box, Card, CardContent, CardHeader, Typography } from "@mui/material";
-import { Button } from "@mui/base";
+import { Box, Button, Card, CardContent, CardHeader, Typography } from "@mui/material";
 
 export default function Links() 
 {
@@ -114,33 +113,33 @@ export default function Links()
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <NavBar/>
-            <Box>
+            <Box sx={{textAlign: "center"}}>
                 <h1>Mental Health Links </h1>
             </Box>
             <Box>
                 {
                     content.map((section) => {
-                        return <>
+                        return <Box sx={{textAlign: "center"}}>
                             <h2>{section.section}</h2>
+                            <Box sx={{ display: "inline-flex", justifyContent: "space-around", height: "25%", width: "100%" }}>
                             {
                                 section.resources.map((resource) => {
-                                    return <>
-                                        <Card sx={{ maxWidth: 345 }}>
-                                            <CardHeader title={resource.name} />
-                                            <CardContent>
-                                                <Typography variant="body2" color="text.secondary">
-                                                    {resource.description}
-                                                </Typography>
-                                            </CardContent>
-                                            {
-                                                resource.url &&
-                                                <Button href={resource.url}>Link</Button>
-                                            }
-                                        </Card>
-                                    </>
+                                    return <Card sx={{ width: "18%", textAlign: "center" }}>
+                                                <CardHeader title={resource.name}/>
+                                                <CardContent>
+                                                    <Typography variant="body2" color="contrastText">
+                                                        {resource.description}
+                                                    </Typography>
+                                                </CardContent>
+                                                {
+                                                    resource.url &&
+                                                    <Button color="secondary" href={resource.url} sx={{marginTop: "auto", marginBottom: "0rem"}}>Link</Button>
+                                                }
+                                           </Card>
                                 })
                             }
-                        </>
+                            </Box>
+                        </Box>
                     })
                 }
             </Box>
