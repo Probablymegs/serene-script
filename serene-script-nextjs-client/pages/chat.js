@@ -41,7 +41,7 @@ export default function Chat() {
             return [
                 ...sessionMessages,
                 { role: "user", message: userMessage },
-                { role: "assistant", message: response.response },
+                { role: "assistant", message: response.response }
             ];
         });
 

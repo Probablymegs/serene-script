@@ -19,8 +19,9 @@ const getTaskValue = async (prompt) => {
             Accept: "application/json",
             "Content-Type": "application/json",
         },
-        body: prompt,
+        body: JSON.stringify({ prompt: prompt }),
     });
+
     return response.json();
 };
 

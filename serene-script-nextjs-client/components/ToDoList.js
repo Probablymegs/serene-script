@@ -24,8 +24,9 @@ export default function ToDoList() {
     };
 
     const addToList = async () => {
-        let newToDos = [toDoItem, ...allToDos];
-        setTodoValue(await getTaskValue(newToDos));
+        var taskVal = await getTaskValue(toDoItem)
+        setTodoValue(taskVal.response);
+        let newToDos = [{task: toDoItem, value: todoValue}, ...allToDos];
         setAllToDos(newToDos);
         setToDoItem("");
     };
@@ -73,7 +74,7 @@ export default function ToDoList() {
                                         </IconButton>
                                     }
                                 >
-                                    <ListItemText primary={toDoItem + " " + todoValue} />
+                                    <ListItemText primary={toDoItem.task + " " + toDoItem.value} />
                                 </ListItem>
                             );
                         })}

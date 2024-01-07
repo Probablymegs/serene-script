@@ -87,6 +87,8 @@ router.post("/analyzeTask", async (req, res) => {
         model: "gpt-4"
     });
 
+    console.log(completion.choices[0].message.content);
+
     res.json({ response: completion.choices[0].message.content });
 })
 
