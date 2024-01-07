@@ -14,6 +14,10 @@ export default function Chat() {
     const chatEndRef = useRef(null);
 
     const handleSendChat = async () => {
+        if (!validateMessage()) {
+            return;
+        }
+
         let userMessage = userInput;
         let response = await getCompletion(userMessage, sessionId);
 
@@ -30,8 +34,17 @@ export default function Chat() {
         });
 
         setUserInput("");
-        chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
     };
+
+    const validateMessage = () => {
+        let valid = true;
+
+        if (userInput.trim() == "") {
+            valid = false;
+        }
+
+        return valid;
+    }
 
     useEffect(() => {
         chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
