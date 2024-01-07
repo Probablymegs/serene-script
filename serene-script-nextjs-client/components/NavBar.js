@@ -6,6 +6,8 @@ import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import Box from "@mui/material/Box"
 import { useTheme } from "@mui/material";
+import SpaIcon from '@mui/icons-material/Spa';
+
 
 export default function NavBar(props) {
     const theme = useTheme();
@@ -16,21 +18,21 @@ export default function NavBar(props) {
                 <Toolbar>
                     <Link href="/" /*insert reference page here*/>
                         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                            Home
+                            <SpaIcon/>
                         </Typography>
                     </Link>
                     <Link href="/chat">
-                        <Typography variant="h6" component="div" sx={{ flexGrow: 1, marginLeft: "1rem" }}>
+                        <Typography variant="h6" component="div" sx={{ flexGrow: 1, marginLeft: "1rem", color: "black" }}>
                             Chat
                         </Typography>
                     </Link>
                     <Link href="/toDo">
-                        <Typography variant="h6" component="div" sx={{ flexGrow: 1, marginLeft: "1rem" }}>
+                        <Typography variant="h6" component="div" sx={{ flexGrow: 1, marginLeft: "1rem", color: "black" }}>
                             To do
                         </Typography>
                     </Link>
                     <Link href="/links">
-                        <Typography variant="h6" component="div" sx={{ flexGrow: 1, marginLeft: "1rem" }}>
+                        <Typography variant="h6" component="div" sx={{ flexGrow: 1, marginLeft: "1rem", color: "black" }}>
                             Get Help
                         </Typography>
                     </Link>
