@@ -113,19 +113,19 @@ export default function Links()
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <NavBar/>
-            <Box sx={{textAlign: "center"}}>
-                <h1>Mental Health Links </h1>
+            <Box sx={{textAlign: "center", marginTop: "5px", marginBottom: "5px" }}>
+                <Typography variant="h3">Mental Health Links </Typography>
             </Box>
             <Box>
                 {
                     content.map((section) => {
                         return <Box sx={{textAlign: "center"}}>
-                            <h2>{section.section}</h2>
+                            <Typography variant="h4" sx={{ marginTop: "5px", marginBottom: "5px" }}>{section.section}</Typography>
                             <Box sx={{ display: "inline-flex", justifyContent: "space-around", height: "25%", width: "100%" }}>
                             {
                                 section.resources.map((resource) => {
                                     return <Card raised="true" sx={{ width: "18%", textAlign: "center" }}>
-                                                <CardHeader title={resource.name}/>
+                                                <CardHeader title={resource.name} />
                                                 <CardContent>
                                                     <Typography variant="body2" color="contrastText">
                                                         {resource.description}
