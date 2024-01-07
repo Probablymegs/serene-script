@@ -12,4 +12,16 @@ const getCompletion = async (prompt, sessionId) => {
     return response.json();
 };
 
-export { getCompletion };
+const getTaskValue = async (prompt) => {
+    let response = await fetch(`${apiLink}/gpt4/analyzeTask`, {
+        method: "POST",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+        },
+        body: prompt,
+    });
+    return response.json();
+};
+
+export { getCompletion, getTaskValue };

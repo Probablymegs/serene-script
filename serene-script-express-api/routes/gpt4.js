@@ -39,7 +39,7 @@ router.post("/getCompletion", async (req, res) => {
         },
         {
             role: "system",
-            content: "Once the user has been provided with a url to a resource, limit the amount of times you reference that same resource unless the question is mental health related and is a high risk question. High risk questions qould be those related to suicide, depression, anxiety, etc."
+            content: "Once the user has been provided with a url to a resource, limit the amount of times you reference that same resource unless the question is mental health related and is a high risk question. High risk questions would be those related to suicide, depression, anxiety, etc."
         }
     ]
 
@@ -54,7 +54,7 @@ router.post("/getCompletion", async (req, res) => {
 
     const completion = await openai.chat.completions.create({
         messages: currentMessages,
-        model: "gpt-4",
+        model: "gpt-4"
     });
 
     sessions[sessionId].push(userMessage);
@@ -64,5 +64,30 @@ router.post("/getCompletion", async (req, res) => {
 
     console.log("completed");
 });
+
+router.post("/analyzeTask", async (req, res) => {
+    let prompt = req.body.prompt;
+
+    let currentMessages;
+    let systemMessages = [
+        { 
+            role: "system", 
+            content: "You are a bot that analyzes tasks and assigns them an integer value based on the difficulty of the task. The higher the value, the more difficult the task is. The bot will also provide a link to a resource that can help the user complete the task."
+        }
+    ]
+
+    const completion = await openai.chat.completions.create({
+        messages: [
+            ...systemMessages,
+            { 
+                role: "user", 
+                content: `${prompt}` 
+            }
+        ],
+        model: "gpt-4"
+    });
+
+    res.json({ response: completion.choices[0].message.content });
+})
 
 export { router };

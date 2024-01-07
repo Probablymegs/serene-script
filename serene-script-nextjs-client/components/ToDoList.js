@@ -10,19 +10,22 @@ import ListItemText from "@mui/material/ListItemText";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
+import { getTaskValue } from "@/utils/api/gpt4";
 import { useTheme } from "@mui/material";
 
 export default function ToDoList() {
     const [toDoItem, setToDoItem] = useState("");
     const [allToDos, setAllToDos] = useState([]);
+    const [todoValue, setTodoValue] = useState(0);
     const theme = useTheme();
 
     const onToDoChange = (event) => {
         setToDoItem(event.target.value);
     };
 
-    const addToList = () => {
+    const addToList = async () => {
         let newToDos = [toDoItem, ...allToDos];
+        setTodoValue(await getTaskValue(newToDos));
         setAllToDos(newToDos);
         setToDoItem("");
     };
@@ -70,7 +73,7 @@ export default function ToDoList() {
                                         </IconButton>
                                     }
                                 >
-                                    <ListItemText primary={toDoItem} />
+                                    <ListItemText primary={toDoItem + " " + todoValue} />
                                 </ListItem>
                             );
                         })}
