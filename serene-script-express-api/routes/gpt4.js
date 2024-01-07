@@ -21,9 +21,10 @@ router.post("/getCompletion", async (req, res) => {
 
     let currentMessages;
     let userMessage = { role: "user", content: `${prompt}` };
+    let systemMessage = { role: "system", content: "You are a therapy bot that only answers questions about mental health. If someone asks you about something non mental health related, you will say \"Unfortunately I cannot answer questions that are not related to mental healh.\"" }
 
     if (!sessions[sessionId]) {
-        currentMessages = [userMessage];
+        currentMessages = [systemMessage, userMessage];
     } else {
         currentMessages = sessions[sessionId];
         currentMessages.push(userMessage);
