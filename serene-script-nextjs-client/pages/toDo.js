@@ -1,9 +1,9 @@
 import NavBar from "@/components/NavBar"
 import Head from "next/head";
-import { Box } from "@mui/material";
+import ToDoList from "@/components/ToDoList";
 
-export default function ToDo() 
-{
+export default function ToDo() {
+    
     return <>
             <Head>
                 <title>ToDo</title>
@@ -11,9 +11,7 @@ export default function ToDo()
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <NavBar/>
-            <Box>
-                <h1>To Do</h1>
-            </Box>
+            <NavBar/>   
+            <ToDoList/>
     </>
 }

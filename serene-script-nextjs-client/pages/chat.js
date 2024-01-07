@@ -3,17 +3,21 @@ import { getCompletion } from "@/utils/api/gpt4";
 import { Box, TextField, Button, Typography, useTheme } from "@mui/material";
 import Head from "next/head";
 import { useEffect, useRef, useState } from "react";
+import CircularProgress from "@mui/material/CircularProgress";
 
 export default function Chat() {
     const [sessionId, setSessionId] = useState(-1);
     const [sessionMessages, setSessionMessages] = useState([]);
     const [userInput, setUserInput] = useState("");
+    const [working, setWorking] = useState(false);
 
     const theme = useTheme();
 
     const chatEndRef = useRef(null);
 
     const handleSendChat = async () => {
+        setWorking(true);
+
         if (!validateMessage()) {
             return;
         }
@@ -34,6 +38,8 @@ export default function Chat() {
         });
 
         setUserInput("");
+
+        setWorking(false);
     };
 
     const validateMessage = () => {
@@ -44,7 +50,7 @@ export default function Chat() {
         }
 
         return valid;
-    }
+    };
 
     useEffect(() => {
         chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -145,12 +151,18 @@ export default function Chat() {
                         multiline
                         sx={{ width: "70%" }}
                         placeholder="Message"
+                        disabled={working == true}
                     />
                 </div>
-                <div style={{ display: "flex", justifyContent: "center" }}>
-                    <Button onClick={async () => await handleSendChat()} sx={{ display: "block" }}>
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+                    <Button
+                        onClick={async () => await handleSendChat()}
+                        sx={{ display: "block", color: theme.palette.primary.dark }}
+                        disabled={working == true}
+                    >
                         Send
                     </Button>
+                    {working && <CircularProgress />}
                 </div>
             </Box>
         </>

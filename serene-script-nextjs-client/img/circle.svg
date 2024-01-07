@@ -1,0 +1,29 @@
+<!-- <?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient gradientUnits="userSpaceOnUse" cx="260.333" cy="245.042" r="165.748" id="gradient-0" spreadMethod="pad" gradientTransform="matrix(-0.5582, 0.449915, -0.771889, -0.957662, 627.049037, 292.172643)">
+      <stop offset="0" style="stop-color: rgb(54.902% 80.784% 79.608%)"/>
+      <stop offset="1" style="stop-color: rgb(22.185% 47.864% 47.009%)"/>
+    </radialGradient>
+    <radialGradient gradientUnits="userSpaceOnUse" cx="242.034" cy="241.881" r="165.748" id="gradient-2" spreadMethod="pad" gradientTransform="matrix(1, 0, 0, 1, -21.752172, -8.42513)">
+      <stop offset="0" style="stop-color: rgb(72.941% 85.49% 33.333%)"/>
+      <stop offset="1" style="stop-color: rgb(37.394% 50.429% 0%)"/>
+    </radialGradient>
+  </defs>
+  <ellipse style="paint-order: stroke; stroke: url('#gradient-2'); fill: url('#gradient-0'); transform-origin: 310.968px 121.323px;" cx="220.282" cy="233.456" rx="165.748" ry="165.748"/>
+</svg> -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<radialGradient id="b" cx="260.33" cy="245.04" r="165.75" gradientTransform="matrix(-.5582 .44992 -.77189 -.95766 627.05 292.17)" gradientUnits="userSpaceOnUse">
+<stop stop-color="rgb(54.902% 80.784% 79.608%)" offset="0"/>
+<stop stop-color="rgb(22.185% 47.864% 47.009%)" offset="1"/>
+</radialGradient>
+<radialGradient id="a" cx="242.03" cy="241.88" r="165.75" gradientTransform="translate(-21.752 -8.4251)" gradientUnits="userSpaceOnUse">
+<stop stop-color="rgb(72.941% 85.49% 33.333%)" offset="0"/>
+<stop stop-color="rgb(37.394% 50.429% 0%)" offset="1"/>
+</radialGradient>
+</defs>
+<ellipse cx="220.28" cy="233.46" rx="165.75" ry="165.75" fill="url(#b)" stroke="url(#a)" style="paint-order:stroke;transform-origin:310.968px 121.323px"/>
+</svg>
