@@ -7,7 +7,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 
 export default function Chat() {
     const [sessionId, setSessionId] = useState(-1);
-    const [sessionMessages, setSessionMessages] = useState([]);
+    const [sessionMessages, setSessionMessages] = useState([{ role: "assistant", message: "Hello! My name is Serenity. I am here to answer any questions you might have about mental health. How can I help you today?" }]);
     const [userInput, setUserInput] = useState("");
     const [working, setWorking] = useState(false);
 
