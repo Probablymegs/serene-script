@@ -33,7 +33,7 @@ export default function NavBar(props) {
                             component="div"
                             sx={{ flexGrow: 1, color: theme.palette.primary.dark, fontSize: 25 }}
                         >
-                            To do
+                            Tasks
                         </Typography>
                     </Link>
                     <Link style={{ textDecoration: "none" }} href="/links">
@@ -42,7 +42,16 @@ export default function NavBar(props) {
                             component="div"
                             sx={{ flexGrow: 1, color: theme.palette.primary.dark, fontSize: 25 }}
                         >
-                            Get Help
+                            Get Support
+                        </Typography>
+                    </Link>
+                    <Link style={{ textDecoration: "none" }} href="/about">
+                        <Typography
+                            variant="h6"
+                            component="div"
+                            sx={{ flexGrow: 1, color: theme.palette.primary.dark, fontSize: 25 }}
+                        >
+                            About Us
                         </Typography>
                     </Link>
                     <Menu></Menu>

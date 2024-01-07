@@ -37,7 +37,7 @@ export default function ToDoList() {
         <Box sx={{ flexGrow: 1 }}>
             <Grid container sx={{ width: "70%", marginX: "auto" }}>
                 <Grid item xs={12}>
-                    <h1 style={{ textAlign: "center", marginTop: "5rem", color: theme.palette.primary.dark, marginBottom: "3rem" }}>To Do</h1>
+                    <h1 style={{ textAlign: "center", marginTop: "5rem", color: theme.palette.primary.dark, marginBottom: "3rem" }}>Tasks</h1>
                 </Grid>
                 <Grid item xs={10}>
                     <TextField
