@@ -18,7 +18,6 @@ router.post("/getCompletion", async (req, res) => {
     if (sessionId == -1) {
         sessionId = sessions.length + 1;
     }
-    let welcomeMessage = { role: "assistant", content: "Hello! My name is Serenity. I am here to answer any questions you might have about mental health. How can I help you today?" };
     let currentMessages;
     let userMessage = { role: "user", content: `${prompt}` };
     let systemMessages = [
@@ -37,11 +36,15 @@ router.post("/getCompletion", async (req, res) => {
         {
             role: "system",
             content: "Once the user has asked a question that relates to health, you may answer questions that are not health related if they are related to the current context of the conversation."
+        },
+        {
+            role: "system",
+            content: "Once the user has been provided with a url to a resource, limit the amount of times you reference that same resource unless the question is mental health related and is a high risk question. High risk questions qould be those related to suicide, depression, anxiety, etc."
         }
     ]
 
     if (!sessions[sessionId]) {
-        currentMessages = [...systemMessages, welcomeMessage, userMessage];
+        currentMessages = [...systemMessages, userMessage];
     } else {
         currentMessages = sessions[sessionId];
         currentMessages.push(userMessage);
